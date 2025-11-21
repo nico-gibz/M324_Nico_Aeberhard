@@ -1,4 +1,4 @@
-// index.js
+// index.js in feature1
 var unusedVariable = 'some value'
 
 export const sum = (a, b) => {
