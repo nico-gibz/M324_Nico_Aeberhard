@@ -1,0 +1,25 @@
+{
+  "name": "task_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "node --experimental-vm-modules node_modules/mocha/bin/mocha.js ./",
+    "start": "npm run format && npm run lint && npm run test && node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "eslint": "^9.36.0",
+    "globals": "^16.4.0"
+  },
+  "dependencies": {
+    "mocha": "^11.7.4",
+    "prettier": "^3.6.2"
+  }
+}
