@@ -12,7 +12,7 @@ jobs:
   scan:
     name: Run Virus Scan
     runs-on: ubuntu-latest
-    if: 1 == 2
+    # if: 1 == 2
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
