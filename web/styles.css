@@ -1,0 +1,153 @@
+:root {
+    --primary-color-light: #ff66ff; /* lighter pink for light mode */
+    --primary-color-dark: #ff00ff;  /* bright pink for dark mode */
+    --background-light: #ffffff;
+    --text-light: #333;
+    --background-dark: #1a1a1a;
+    --text-dark: #f5f5f5;
+    --card-shadow-light: 0 12px 25px rgba(0,0,0,0.12);
+    --card-shadow-dark: 0 12px 25px rgba(0,0,0,0.35);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--background-light);
+    color: var(--text-light);
+    margin: 0;
+    padding: 20px;
+    transition: background 0.5s, color 0.5s;
+}
+
+body.dark-mode {
+    background: var(--background-dark);
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+}
+
+header button {
+    background: var(--primary-color-light);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.5s;
+}
+
+body.dark-mode header button {
+    background: var(--primary-color-dark);
+}
+
+header button:hover {
+    opacity: 0.85;
+}
+
+.table-card {
+    background: var(--background-light);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: var(--card-shadow-light);
+    transition: background 0.5s, box-shadow 0.5s;
+}
+
+body.dark-mode .table-card {
+    background: #2a2a2a;
+    box-shadow: var(--card-shadow-dark);
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+th {
+    background: var(--primary-color-light);
+    color: #fff;
+    text-transform: uppercase;
+    cursor: default;
+    transition: background 0.5s;
+}
+
+body.dark-mode th {
+    background: var(--primary-color-dark);
+}
+
+tr:not(.header-row):hover {
+    background: #ffe4ff;
+}
+
+input[type="text"], input[type="email"] {
+    width: 95%;
+    padding: 8px 12px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus {
+    border-color: var(--primary-color-light);
+    box-shadow: 0 0 6px var(--primary-color-light);
+    outline: none;
+}
+
+body.dark-mode input[type="text"]:focus,
+body.dark-mode input[type="email"]:focus {
+    border-color: var(--primary-color-dark);
+    box-shadow: 0 0 6px var(--primary-color-dark);
+}
+
+.actions input[type="submit"], .new-row input[type="submit"] {
+    padding: 6px 16px;
+    border-radius: 14px;
+    border: none;
+    background: var(--primary-color-light);
+    color: #fff;
+    cursor: pointer;
+    margin: 0 3px;
+    font-weight: bold;
+    transition: background 0.5s, transform 0.1s;
+}
+
+body.dark-mode .actions input[type="submit"],
+body.dark-mode .new-row input[type="submit"] {
+    background: var(--primary-color-dark);
+}
+
+.actions input[type="submit"]:hover, .new-row input[type="submit"]:hover {
+    opacity: 0.85;
+}
+
+@media screen and (max-width: 768px) {
+    th, td { padding: 10px 8px; }
+    header h1 { font-size: 1.6rem; }
+}

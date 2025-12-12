@@ -31,6 +31,22 @@ services:
     networks:
       - mynet
 
+  web:
+    build: ./web
+    container_name: web-app
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./web:/var/www/html
+    ports:
+      - "8081:80"
+    networks:
+      - mynet
+
 volumes:
   mysql_data:
 
