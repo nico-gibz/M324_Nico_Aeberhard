@@ -16,6 +16,21 @@ services:
     networks:
       - mynet
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin-demo
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql-demo
+      PMA_PORT: 3306
+      PMA_USER: ${MYSQL_USER}
+      PMA_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "8080:80"
+    networks:
+      - mynet
+
 volumes:
   mysql_data:
 
