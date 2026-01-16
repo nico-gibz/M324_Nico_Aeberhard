@@ -21,7 +21,7 @@ jobs:
 
       - name: Build and push MySQL image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/m324-mysql:latest ./db
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/m324-mysql:latest .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/m324-mysql:latest
 
       - name: Build and push Web image
