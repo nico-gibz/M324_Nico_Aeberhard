@@ -1,0 +1,30 @@
+name: Build & Deploy to Railway
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push MySQL image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/m324-mysql:latest ./db
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/m324-mysql:latest
+
+      - name: Build and push Web image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/m324-web:latest ./web
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/m324-web:latest

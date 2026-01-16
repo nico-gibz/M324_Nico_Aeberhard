@@ -1,10 +1,11 @@
 <?php
-$servername = "mysql-demo";
-$username = getenv('MYSQL_USER');
-$password = getenv('MYSQL_PASSWORD');
-$dbname = getenv('MYSQL_DATABASE');
+$servername = getenv('MYSQL_HOST'); // should be "mysql"
+$username   = getenv('MYSQL_USER');
+$password   = getenv('MYSQL_PASSWORD');
+$dbname     = getenv('MYSQL_DATABASE');
 
 $conn = new mysqli($servername, $username, $password, $dbname);
+
 if ($conn->connect_error) {
     die("<h1 style='color:red;'>Connection failed: " . $conn->connect_error . "</h1>");
 }

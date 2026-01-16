@@ -9,7 +9,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "3308:3306"
+      - '3308:3306'
     volumes:
       - ./mysql_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
@@ -27,7 +27,7 @@ services:
       PMA_USER: ${MYSQL_USER}
       PMA_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "8080:80"
+      - '8080:80'
     networks:
       - mynet
 
@@ -37,13 +37,14 @@ services:
     depends_on:
       - mysql
     environment:
+      MYSQL_HOST: mysql-demo
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - ./web:/var/www/html
     ports:
-      - "8081:80"
+      - '8081:80'
     networks:
       - mynet
 
